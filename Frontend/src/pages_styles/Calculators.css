@@ -1,0 +1,380 @@
+import React, { useState } from "react";
+import {
+  Calculator,
+  Wheat,
+  Sprout,
+  Droplets,
+  FlaskConical,
+  IndianRupee,
+  Ruler,
+  ArrowRight,
+  Sparkles,
+  CheckCircle2,
+} from "lucide-react";
+
+const calculators = [
+  {
+    title: "Yield Calculator",
+    description: "Estimate expected crop production from your field size and productivity.",
+    icon: Wheat,
+    tag: "Production",
+    color: "green",
+  },
+  {
+    title: "Seed Calculator",
+    description: "Find the approximate seed quantity required for your farm.",
+    icon: Sprout,
+    tag: "Seeds",
+    color: "emerald",
+  },
+  {
+    title: "Irrigation Calculator",
+    description: "Estimate water requirements according to your crop and field.",
+    icon: Droplets,
+    tag: "Water",
+    color: "blue",
+  },
+  {
+    title: "Fertilizer Calculator",
+    description: "Estimate fertilizer requirements for better crop management.",
+    icon: FlaskConical,
+    tag: "Fertilizer",
+    color: "orange",
+  },
+  {
+    title: "Profit Calculator",
+    description: "Estimate revenue, expenses and possible farming profit.",
+    icon: IndianRupee,
+    tag: "Finance",
+    color: "purple",
+  },
+  {
+    title: "Area Calculator",
+    description: "Calculate and convert your farm area between common units.",
+    icon: Ruler,
+    tag: "Farm Area",
+    color: "cyan",
+  },
+];
+
+const colorClasses = {
+  green: {
+    icon: "bg-green-50 text-green-600 group-hover:bg-green-600 group-hover:text-white",
+    tag: "bg-green-50 text-green-700",
+  },
+  emerald: {
+    icon: "bg-emerald-50 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white",
+    tag: "bg-emerald-50 text-emerald-700",
+  },
+  blue: {
+    icon: "bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white",
+    tag: "bg-blue-50 text-blue-700",
+  },
+  orange: {
+    icon: "bg-orange-50 text-orange-600 group-hover:bg-orange-600 group-hover:text-white",
+    tag: "bg-orange-50 text-orange-700",
+  },
+  purple: {
+    icon: "bg-purple-50 text-purple-600 group-hover:bg-purple-600 group-hover:text-white",
+    tag: "bg-purple-50 text-purple-700",
+  },
+  cyan: {
+    icon: "bg-cyan-50 text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white",
+    tag: "bg-cyan-50 text-cyan-700",
+  },
+};
+
+export default function Calculators({ onBack }) {
+  const [selectedCalculator, setSelectedCalculator] = useState(null);
+
+  return (
+    <div className="space-y-7">
+
+      {/* =====================================================
+          HEADER
+      ===================================================== */}
+
+      <section className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-green-700 via-green-600 to-emerald-600 p-6 text-white shadow-lg shadow-green-900/10 sm:p-8">
+
+        {/* Background Decoration */}
+        <div className="absolute -right-16 -top-20 h-56 w-56 rounded-full bg-white/10" />
+        <div className="absolute -bottom-20 right-20 h-40 w-40 rounded-full bg-white/5" />
+
+        <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+
+          <div className="max-w-2xl">
+
+            <div className="mb-4 flex items-center gap-3">
+
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/15 backdrop-blur">
+                <Calculator size={25} />
+              </div>
+
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.15em] text-green-100">
+                  Smart Farming Tools
+                </p>
+
+                <p className="mt-1 text-xs text-green-100/80">
+                  Simple calculations for better decisions
+                </p>
+              </div>
+
+            </div>
+
+            <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+              Farm Calculators
+            </h1>
+
+            <p className="mt-3 max-w-xl text-sm leading-6 text-green-50 sm:text-base">
+              Calculate crop yield, seed requirements, irrigation,
+              fertilizer, profit and farm area — all in one place.
+            </p>
+
+          </div>
+
+          {onBack && (
+            <button
+              onClick={onBack}
+              className="relative flex w-fit items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-bold text-green-700 shadow-sm transition hover:bg-green-50"
+            >
+              Back to Dashboard
+              <ArrowRight size={17} />
+            </button>
+          )}
+
+        </div>
+      </section>
+
+
+      {/* =====================================================
+          QUICK INFO
+      ===================================================== */}
+
+      <div className="grid gap-4 sm:grid-cols-3">
+
+        <div className="flex items-center gap-4 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-50 text-green-600">
+            <Calculator size={21} />
+          </div>
+
+          <div>
+            <p className="text-sm font-bold text-gray-900">
+              6 Tools
+            </p>
+            <p className="text-xs text-gray-500">
+              Farming calculations
+            </p>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-4 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+            <Sparkles size={21} />
+          </div>
+
+          <div>
+            <p className="text-sm font-bold text-gray-900">
+              Easy to Use
+            </p>
+            <p className="text-xs text-gray-500">
+              Simple input & results
+            </p>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-4 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-orange-600">
+            <CheckCircle2 size={21} />
+          </div>
+
+          <div>
+            <p className="text-sm font-bold text-gray-900">
+              Quick Results
+            </p>
+            <p className="text-xs text-gray-500">
+              Make decisions faster
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+
+      {/* =====================================================
+          CALCULATOR GRID
+      ===================================================== */}
+
+      <section>
+
+        <div className="mb-5">
+          <h2 className="text-xl font-extrabold text-gray-900 sm:text-2xl">
+            Choose a Calculator
+          </h2>
+
+          <p className="mt-1 text-sm text-gray-500">
+            Select a tool based on your farming requirement.
+          </p>
+        </div>
+
+
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+
+          {calculators.map((calculator) => {
+
+            const Icon = calculator.icon;
+            const colors = colorClasses[calculator.color];
+
+            return (
+              <button
+                key={calculator.title}
+                onClick={() => setSelectedCalculator(calculator)}
+                className="group relative overflow-hidden rounded-3xl border border-gray-200 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-green-200 hover:shadow-xl hover:shadow-gray-200/60"
+              >
+
+                {/* Top Line */}
+                <div className="absolute left-0 right-0 top-0 h-1 bg-gradient-to-r from-green-500 to-emerald-400 opacity-0 transition group-hover:opacity-100" />
+
+                <div className="flex items-start justify-between">
+
+                  <div
+                    className={`flex h-14 w-14 items-center justify-center rounded-2xl transition-all duration-300 ${colors.icon}`}
+                  >
+                    <Icon size={27} strokeWidth={1.8} />
+                  </div>
+
+                  <span
+                    className={`rounded-full px-3 py-1 text-[10px] font-bold ${colors.tag}`}
+                  >
+                    {calculator.tag}
+                  </span>
+
+                </div>
+
+                <h3 className="mt-5 text-lg font-extrabold text-gray-900">
+                  {calculator.title}
+                </h3>
+
+                <p className="mt-2 min-h-[48px] text-sm leading-6 text-gray-500">
+                  {calculator.description}
+                </p>
+
+                <div className="mt-5 flex items-center justify-between">
+
+                  <span className="text-sm font-bold text-green-600">
+                    Open Calculator
+                  </span>
+
+                  <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gray-50 text-gray-400 transition group-hover:bg-green-600 group-hover:text-white">
+                    <ArrowRight size={17} />
+                  </span>
+
+                </div>
+
+              </button>
+            );
+          })}
+
+        </div>
+
+      </section>
+
+
+      {/* =====================================================
+          BOTTOM INFO
+      ===================================================== */}
+
+      <section className="overflow-hidden rounded-3xl border border-green-100 bg-green-50 p-6 sm:p-7">
+
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
+
+          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-green-600 text-white shadow-sm">
+            <Sparkles size={25} />
+          </div>
+
+          <div>
+            <h2 className="font-extrabold text-gray-900">
+              Make smarter farming decisions
+            </h2>
+
+            <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-600">
+              Use CropZora's calculators to estimate important
+              farming requirements before planning your next activity.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* =====================================================
+          SIMPLE MODAL
+      ===================================================== */}
+
+      {selectedCalculator && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 p-4 backdrop-blur-sm">
+
+          <div className="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl">
+
+            <div className="flex items-start justify-between">
+
+              <div className="flex items-center gap-3">
+
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-green-600">
+                  <selectedCalculator.icon size={23} />
+                </div>
+
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-green-600">
+                    Calculator
+                  </p>
+
+                  <h3 className="text-lg font-bold text-gray-900">
+                    {selectedCalculator.title}
+                  </h3>
+                </div>
+
+              </div>
+
+              <button
+                onClick={() => setSelectedCalculator(null)}
+                className="rounded-xl px-3 py-2 text-gray-400 hover:bg-gray-100 hover:text-gray-700"
+              >
+                ✕
+              </button>
+
+            </div>
+
+            <div className="mt-6 rounded-2xl bg-gray-50 p-5">
+
+              <p className="text-sm leading-6 text-gray-600">
+                {selectedCalculator.description}
+              </p>
+
+              <div className="mt-5 rounded-xl border border-dashed border-gray-300 bg-white p-4 text-center">
+                <p className="text-sm font-semibold text-gray-700">
+                  Calculator interface
+                </p>
+
+                <p className="mt-1 text-xs text-gray-400">
+                  Input fields can be connected here.
+                </p>
+              </div>
+
+            </div>
+
+            <button
+              onClick={() => setSelectedCalculator(null)}
+              className="mt-5 w-full rounded-xl bg-green-600 py-3 text-sm font-bold text-white transition hover:bg-green-700"
+            >
+              Close
+            </button>
+
+          </div>
+        </div>
+      )}
+
+    </div>
+  
+},);
