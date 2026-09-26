@@ -1,0 +1,9 @@
+{
+  "name": "cropzora",
+  "private": true,
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "npm --prefix Frontend install && npm --prefix Frontend run build && node server.js"
+  }
+}
