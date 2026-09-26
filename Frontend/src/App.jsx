@@ -196,13 +196,8 @@ import Weather from "./pages/Weather";
 import SoilHealth from "./pages/SoilHealth";
 import Notifications from "./pages/Notifications";
 
-// Product Page Import with Safe Fallback Handling
-import * as ProductModule from "./pages/Product";
-const Product = ProductModule.default || ProductModule.Product;
-
-// Safe Module Import for AIChat (Bypasses Vite export mismatch errors)
-import * as AIChatModule from "./pages/AIChat";
-const AIChat = AIChatModule.default || AIChatModule.AIChat;
+import Product from "./pages/Product";
+import AIChat from "./pages/AIChat";
 
 const navigation = [
   { id: "Home", label: "Home", icon: Home },

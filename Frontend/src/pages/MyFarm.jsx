@@ -286,7 +286,7 @@ export default function MyFarm({ onNavigate }) {
             <button className="rounded-xl p-2 text-gray-500 hover:bg-gray-100">•••</button>
           </div>
 
-          <div className="relative h-64 overflow-hidden bg-gradient-to-br from-green-100 via-green-200 to-emerald-300">
+          <div className="relative h-64 overflow-hidden from-green-100 via-green-200 to-emerald-300">
             <div className="absolute left-8 top-10 h-28 w-40 rotate-6 rounded-[40%] bg-green-700 opacity-30" />
             <div className="absolute right-12 top-5 h-32 w-52 -rotate-12 rounded-[40%] bg-green-800 opacity-30" />
             <div className="absolute bottom-4 left-1/3 h-28 w-48 rotate-3 rounded-[40%] bg-lime-700 opacity-30" />
